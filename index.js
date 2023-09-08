@@ -23,8 +23,8 @@ app.get('/api', async(req, res)=>{
             "current_day": DaysOfTheWeek[new Date().getDay()],
             "utc_time": new Date().toISOString(),
             "track": track,
-            "github_file_url": "https://github.com/oem18/repo/blob/main/file_name.ext",
-            "github_repo_url": "https://github.com/oem18/repo",
+            "github_file_url": "https://github.com/oem18/HngBackendStageOne/blob/main/index.js",
+            "github_repo_url": "https://github.com/oem18/HngBackendStageOne",
             "status_code": 200
         });
 

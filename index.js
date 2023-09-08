@@ -20,9 +20,9 @@ app.get('/api', async(req, res)=>{
     if(slack_name && track) {
 
         const date = new Date();
-        date.setSeconds(0,0);
+        // date.setSeconds(0,0);
         res.status(200).send({
-            "slack_name": slack_name,
+            "slack_name": slack_name.replace("_", " "),
             "current_day": DaysOfTheWeek[new Date().getDay()],
             "utc_time": date.toISOString().replace(/\.\d+Z/,'Z'),
             "track": track,

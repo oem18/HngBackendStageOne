@@ -8,7 +8,8 @@ const app = express();
 app.disable('x-powered-by');
 app.use(helmet());
 app.use(cors());
-
+// "2023-09-08T07:56:12.832Z"
+// 2023-09-08T08:00:11Z
 const DaysOfTheWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 app.get('/api', async(req, res)=>{
@@ -18,10 +19,12 @@ app.get('/api', async(req, res)=>{
 
     if(slack_name && track) {
 
+        const date = new Date();
+        date.setSeconds(0,0);
         res.status(200).send({
             "slack_name": slack_name,
             "current_day": DaysOfTheWeek[new Date().getDay()],
-            "utc_time": new Date().toISOString(),
+            "utc_time": date.toISOString().replace(/\.\d+Z/,'Z'),
             "track": track,
             "github_file_url": "https://github.com/oem18/HngBackendStageOne/blob/main/index.js",
             "github_repo_url": "https://github.com/oem18/HngBackendStageOne",
